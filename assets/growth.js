@@ -1,93 +1,95 @@
 "use strict";
 
 const GROWTH_SKILLS = {
-  linux: { name: "Linux 内核与 eBPF", icon: "linux.svg" },
-  memory: { name: "虚拟内存与分配器", icon: "chip.svg" },
-  netstack: { name: "TCP/IP 与网络栈", icon: "network.svg" },
-  io: { name: "Epoll 与零拷贝 I/O", icon: "bolt.svg" },
-  go: { name: "Go 语言运行时", icon: "go.svg" },
-  gmp: { name: "GMP 协程调度", icon: "gear.svg" },
-  gc: { name: "三色 GC 与逃逸分析", icon: "clock.svg" },
-  lockfree: { name: "内存模型与无锁并发", icon: "code.svg" },
-  raft: { name: "Raft / Paxos 共识", icon: "cube.svg" },
-  storage: { name: "LSM-Tree 与分库分表", icon: "database.svg" },
-  cache: { name: "多级缓存与一致性", icon: "redis.svg" },
-  stream: { name: "消息流与幂等投递", icon: "bolt.svg" },
-  ddd: { name: "DDD 与商品域建模", icon: "cube.svg" },
-  order: { name: "订单状态机与履约", icon: "gear.svg" },
-  seckill: { name: "热点库存与秒杀削峰", icon: "flame.svg" },
-  tx: { name: "分布式事务与对账", icon: "shield.svg" },
-  k8s: { name: "K8s 声明式控制面", icon: "k8s.svg" },
-  scheduler: { name: "异构算力调度框架", icon: "radar.svg" },
-  gpu: { name: "GPU 拓扑与虚拟节点", icon: "gpu.svg" },
-  aiinfra: { name: "大模型训推基础设施", icon: "flame.svg" },
+  cpp: { name: "C++ / Python", icon: "cpp.svg" },
+  onnx: { name: "模型量化与 ONNX", icon: "cube.svg" },
+  tensorrt: { name: "TensorRT 推理加速", icon: "bolt.svg" },
+  triton: { name: "视觉模型服务化部署", icon: "eye.svg" },
+  dcgm: { name: "DCGM GPU 遥测", icon: "gpu.svg" },
+  prometheus: { name: "Prometheus 监控体系", icon: "radar.svg" },
+  rdma: { name: "RDMA / 算力网络监控", icon: "network.svg" },
+  xid: { name: "Xid 故障感知与诊断", icon: "shield.svg" },
+  linux: { name: "Linux 与容器隔离", icon: "linux.svg" },
+  k8s: { name: "Kubernetes 编排", icon: "k8s.svg" },
+  operator: { name: "异构算力 Operator", icon: "gear.svg" },
+  storage: { name: "分布式存储与镜像加速", icon: "database.svg" },
+  embodied: { name: "具身多模态数据管线", icon: "bot.svg" },
+  workflow: { name: "分布式训练与工作流", icon: "flame.svg" },
+  sim: { name: "仿真评测与数据回流", icon: "gamepad.svg" },
+  datalake: { name: "海量传感器数据湖", icon: "database.svg" },
+  go: { name: "Go 高并发控制面", icon: "go.svg" },
+  scheduler: { name: "K8s Scheduler 调度器", icon: "radar.svg" },
+  vk: { name: "Virtual Kubelet 联邦", icon: "cube.svg" },
+  sre: { name: "Fail-Closed 韧性架构", icon: "shield.svg" },
+  mall: { name: "高并发商城与柔性事务", icon: "redis.svg" },
   agent: { name: "Agent 自进化与记忆", icon: "bot.svg" },
-  sre: { name: "Fail-Closed 与可观测性", icon: "eye.svg" },
 };
 
 const GROWTH_STAGES = [
   {
-    title: "计算机系统与内核基石",
-    land: "第一层 · 机械同情谷",
-    boss: "黑盒抽象迷雾",
-    period: "LAYER 01 · OS & KERNEL INTERNALS",
-    place: "必修底座 · 操作系统与网络栈",
-    favoritePlace: "底座基石",
-    description: "深入虚拟内存、多级页表、TCMalloc/ptmalloc 分配模型、Linux CFS/EEVDF 调度，以及 Epoll、PageCache、Zero-Copy 与 TCP 拥塞控制。",
-    skills: ["linux", "memory", "netstack", "io"],
-    link: "#notes",
+    title: "图像模型部署",
+    land: "第一站 · 视觉推理工坊",
+    boss: "端侧算力与延迟瓶颈",
+    period: "STAGE 01 · MODEL DEPLOYMENT",
+    place: "中国科大先研院 · 实习",
+    favoritePlace: "科大先研院",
+    description: "从算法模型走向工程落地：负责视觉/图像模型的算子对齐、ONNX/TensorRT 量化编译加速、流水线批处理优化与高吞吐推理服务部署。",
+    skills: ["cpp", "onnx", "tensorrt", "triton"],
+    link: "#note-aiinfra",
   },
   {
-    title: "语言运行时与高并发编程",
-    land: "第二层 · 并发回廊",
-    boss: "GC 抖动与竞争怪",
-    period: "LAYER 02 · RUNTIME & CONCURRENCY",
-    place: "核心内功 · Go Runtime 与并发原语",
-    description: "吃透 Go GMP 抢占式调度、三色标记混合写屏障 GC、Happens-Before 内存序、Channel/Mutex 底层状态机，以及 pprof/trace 火焰图调优。",
-    skills: ["go", "gmp", "gc", "lockfree"],
-    link: "#notes",
+    title: "GPU 集群监控",
+    land: "第二站 · 算力观测哨所",
+    boss: "幽灵掉卡与网络拥塞怪",
+    period: "STAGE 02 · GPU CLUSTER OBSERVABILITY",
+    place: "基流科技 · 实习",
+    favoritePlace: "基流科技",
+    description: "深入大规模 GPU 算力集群可观测性：基于 DCGM 采集显存/SM 利用率/NVLink 带宽与 Xid 硬件错误，结合 RDMA 网络指标构建全链路监控告警与故障定位体系。",
+    skills: ["dcgm", "prometheus", "rdma", "xid"],
+    link: "#note-aiinfra",
   },
   {
-    title: "分布式存储、缓存与消息流",
-    land: "第三层 · 状态迷宫",
-    boss: "脑裂与时钟漂移巨兽",
-    period: "LAYER 03 · DISTRIBUTED & STORAGE",
-    place: "架构支柱 · 共识算法与数据密集型系统",
-    description: "掌握 Raft 选主与日志复制、Linearizable Read、Fencing Token、多级缓存穿透/击穿/雪崩防护、基因法分库分表，以及流式消息的幂等投递。",
-    skills: ["raft", "storage", "cache", "stream"],
-    link: "#notes",
+    title: "AI-Infra 部署",
+    land: "第三站 · 云原生算力堡垒",
+    boss: "异构环境与交付迷宫",
+    period: "STAGE 03 · AI INFRASTRUCTURE DELIVERY",
+    place: "华为南研所 · 实习",
+    favoritePlace: "华为南研所",
+    description: "打磨云原生 AI 基础设施底座：围绕 Kubernetes 容器编排、异构加速卡 Device Plugin / Operator、容器镜像按需加载与分布式训练环境自动化部署。",
+    skills: ["linux", "k8s", "operator", "storage"],
+    link: "#note-controller",
   },
   {
-    title: "商城交易与高并发业务架构",
-    land: "第四层 · 洪峰集市",
-    boss: "超卖与资损风暴",
-    period: "LAYER 04 · E-COMMERCE & BUSINESS ARCH",
-    place: "业务纵深 · 商品 / 交易 / 库存 / 支付清结算",
-    favoritePlace: "业务核心",
-    description: "深耕 SPU/SKU 商品建模、优惠分摊计价引擎、订单有限状态机（FSM）、延时关单、热点库存预占与防超卖、TCC/本地消息表分布式事务及 T+1 账务核对。",
-    skills: ["ddd", "order", "seckill", "tx"],
-    link: "#note-ecommerce-order",
+    title: "具身智能基建和平台",
+    land: "第四站 · 具身智能矩阵",
+    boss: "多模态异构数据洪流",
+    period: "STAGE 04 · EMBODIED AI PLATFORM",
+    place: "Seed-Robotics · 实习",
+    favoritePlace: "Seed-Robotics",
+    description: "连接物理世界与具身大模型：构建机器人真机/仿真多源数据采集、清洗、标注与回流管道，支撑 VLA 具身模型训练工作流编排与闭环评测平台。",
+    skills: ["embodied", "workflow", "sim", "datalake"],
+    link: "#note-aiinfra",
   },
   {
-    title: "云原生控制面与异构算力调度",
-    land: "第五层 · 算力星图",
-    boss: "状态漂移与资源碎片怪",
-    period: "LAYER 05 · CLOUD-NATIVE & SCHEDULING",
-    place: "核心主线 · Kubernetes 控制面与调度器内核",
-    favoritePlace: "重点深耕",
-    description: "掌握 Informer 水平触发调谐、Lease 选主、Scheduler Framework 三级队列与两阶段绑定、Gang 成组调度、GPU 拓扑亲和与 Virtual Kubelet。",
-    skills: ["k8s", "scheduler", "gpu"],
+    title: "计算平台构建",
+    land: "第五站 · 科学计算星海",
+    boss: "跨平面海量算力洪峰",
+    period: "STAGE 05 · COMPUTE PLATFORM ARCHITECTURE",
+    place: "Seed-AI4S · 实习",
+    favoritePlace: "Seed-AI4S",
+    description: "构建大规模 Serverless GPU 与科学计算平台：深耕 K8s Scheduler Framework 异构配额与拓扑调度、Virtual Kubelet 多集群节点池、双平面解耦与 Fail-Closed 控制面。",
+    skills: ["go", "scheduler", "vk", "sre"],
     link: "#note-scheduler",
   },
   {
-    title: "Agent 自进化、AI Infra 与韧性",
-    land: "第六层 · 演化边疆",
-    boss: "静态退化与级联故障",
-    period: "LAYER 06 · SELF-EVOLVING AGENT & AI INFRA",
-    place: "前沿深耕 · 智能体自进化闭环与高可靠算力底座",
-    favoritePlace: "前沿探索",
-    description: "研究 Agent 在线工具容错、Reflexion 反思回环、情景/程序性记忆沉淀、Skill 库自动合成与防退化评测门禁，结合 vLLM/Ray 训推底座与 Fail-Closed 韧性工程。",
-    skills: ["agent", "aiinfra", "sre"],
+    title: "高并发业务与 Agent 自进化",
+    land: "第六站 · 全景演化边疆",
+    boss: "复杂交易与智能体退化",
+    period: "STAGE 06 · BIZ ARCH & SELF-EVOLVING AGENT",
+    place: "长期知识雷达 · 持续进化",
+    favoritePlace: "持续进化",
+    description: "横向融通高并发商城交易架构（SPU/SKU、订单状态机、秒杀防超卖、TCC 与对账）与 Agent 自进化体系（在线自愈、Reflexion 记忆演进、Skill 合成与评测门禁）。",
+    skills: ["mall", "agent"],
     link: "#note-agent-evolution",
     ongoing: true,
   },
@@ -237,13 +239,13 @@ function initGrowth(doc, win) {
     doc.getElementById("growth-level").textContent = `LV.${String(state.stage + 1).padStart(2, "0")}`;
     doc.getElementById("growth-land").textContent = stage.land;
     doc.getElementById("growth-boss").textContent = stage.boss;
-    doc.getElementById("growth-loot").textContent = stage.ongoing ? "✧ NEXT FRONTIER!" : "✧ KNOWLEDGE GET!";
+    doc.getElementById("growth-loot").textContent = stage.ongoing ? "✧ NEXT FRONTIER!" : "✧ SKILL GET!";
     doc.getElementById("growth-title").textContent = stage.title;
     doc.getElementById("growth-period").textContent = stage.period;
     doc.getElementById("growth-place").textContent = stage.place;
     const favorite = doc.getElementById("growth-favorite");
     favorite.hidden = !stage.favoritePlace;
-    favorite.textContent = stage.favoritePlace ? `优先级：${stage.favoritePlace}` : "";
+    favorite.textContent = stage.favoritePlace ? `坐标：${stage.favoritePlace}` : "";
     doc.getElementById("growth-description").textContent = stage.description;
     const link = doc.getElementById("growth-source");
     link.href = stage.link;
@@ -257,7 +259,7 @@ function initGrowth(doc, win) {
       const favoritePlace = GROWTH_STAGES[index].favoritePlace;
       button.setAttribute(
         "aria-label",
-        `第 ${index + 1} 层 · ${GROWTH_STAGES[index].title}${favoritePlace ? `，${favoritePlace}` : ""}${state.completed.includes(index) ? "，已掌握" : ""}`
+        `第 ${index + 1} 关 · ${GROWTH_STAGES[index].title}${favoritePlace ? `，${favoritePlace}` : ""}${state.completed.includes(index) ? "，已点亮" : ""}`
       );
       button.dataset.completed = String(state.completed.includes(index));
     });
@@ -267,36 +269,36 @@ function initGrowth(doc, win) {
       item.setAttribute("aria-label", `${GROWTH_SKILLS[id].name}，${unlocked.has(id) ? "已点亮" : "待点亮"}`);
     });
     doc.getElementById("growth-skill-count").textContent = `已点亮 ${unlocked.size} / ${bagItems.size}`;
-    doc.getElementById("growth-progress").textContent = `知识进度 ${state.completed.length} / ${GROWTH_STAGES.length}`;
+    doc.getElementById("growth-progress").textContent = `成长回放 ${state.completed.length} / ${GROWTH_STAGES.length}`;
     scene.setAttribute(
       "aria-label",
-      `${stage.land}：攻克「${stage.boss}」`
+      `${stage.land}：迎战「${stage.boss}」`
     );
     next.disabled = state.stage === GROWTH_STAGES.length - 1;
     play.disabled = Boolean(motion?.matches && state.phase === "won");
     play.textContent = motion?.matches
       ? state.phase === "won"
-        ? "本层已点亮"
-        : "点亮本层"
+        ? "本关已点亮"
+        : "点亮本关"
       : state.playing
-        ? "暂停推演"
+        ? "暂停冒险"
         : state.phase === "finished"
-          ? "重新推演"
+          ? "再玩一遍"
           : state.phase === "ready"
-            ? "开始推演"
-            : "继续推演";
+            ? "开始冒险"
+            : "继续冒险";
     const message =
       state.phase === "finished"
         ? state.completed.length === GROWTH_STAGES.length
-          ? "六层知识体系已全部点亮，保持空杯心态持续迭代。"
-          : "本段推演完成，可点击任意层级查看核心知识点。"
+          ? "五段实习与知识进阶回放完成，下一座高峰仍在探索。"
+          : "本段回放完成，可点击任意关卡查看实习历练与技术栈。"
         : state.phase === "won"
           ? stage.ongoing
-            ? "迈向 Agent 自进化与 AI Infra 深水区，持续精进。"
-            : `本层点亮：${stage.skills.map((id) => GROWTH_SKILLS[id].name).join(" / ")}`
+            ? "融合复杂业务与 Agent 自进化，探索仍在继续。"
+            : `本关点亮：${stage.skills.map((id) => GROWTH_SKILLS[id].name).join(" / ")}`
           : state.phase === "battle"
-            ? `正在拆解系统难题：「${stage.boss}」…`
-            : `第 ${state.stage + 1} 层 · ${stage.title}`;
+            ? `正在攻克：「${stage.boss}」…`
+            : `第 ${state.stage + 1} 关 · ${stage.place} · ${stage.title}`;
     status.textContent = state.playing ? message : `${message}${motion?.matches ? "（减少动态效果模式）" : ""}`;
   }
 
@@ -338,7 +340,7 @@ function initGrowth(doc, win) {
     );
     observer.observe(scene);
   }
-  doc.getElementById("growth-history").open = false;
+  doc.getElementById("growth-history").open = true;
   root.hidden = false;
   return controller;
 }
