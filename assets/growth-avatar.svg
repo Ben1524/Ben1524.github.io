@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 130" fill="none">
+  <!-- Adventurer Mech / Night-Owl Knight for Ben1524 Growth Quest -->
+  <ellipse cx="80" cy="116" rx="46" ry="8" fill="#222725" opacity="0.14"/>
+  <!-- Cape / Wind Cloak -->
+  <path d="M46 58C26 68 18 88 22 106c14-4 26-8 34-16Z" fill="#d34e31"/>
+  <!-- Legs -->
+  <path d="M64 96v16M96 96v16" stroke="#222725" stroke-width="8" stroke-linecap="round"/>
+  <!-- Body Armor / Core -->
+  <rect x="44" y="34" width="72" height="64" rx="22" fill="#222725" stroke="#f6f5f0" stroke-width="4"/>
+  <!-- Ear / Antenna Horns -->
+  <path d="M52 36L40 14l20 12M108 36l12-22-20 12" fill="#d34e31" stroke="#222725" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Visor / Face Screen -->
+  <rect x="54" y="46" width="52" height="28" rx="10" fill="#f6f5f0"/>
+  <!-- Glowing Eyes -->
+  <circle cx="69" cy="60" r="6" fill="#222725"/>
+  <circle cx="91" cy="60" r="6" fill="#222725"/>
+  <circle cx="71" cy="58" r="2.2" fill="#d34e31"/>
+  <circle cx="93" cy="58" r="2.2" fill="#d34e31"/>
+  <!-- Chest Core Badge -->
+  <circle cx="80" cy="84" r="6" fill="#d34e31"/>
+  <!-- Sword / Code Blade on Right -->
+  <path d="M118 72l26-26" stroke="#d34e31" stroke-width="7" stroke-linecap="round"/>
+  <path d="M114 64l10 10" stroke="#222725" stroke-width="5" stroke-linecap="round"/>
+</svg>
