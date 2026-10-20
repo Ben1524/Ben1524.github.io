@@ -19,8 +19,8 @@ function initSocialAccounts(doc, win) {
       status.textContent = "正在复制…";
       const copied = await copyAccountId(win.navigator, button.dataset.copyAccount);
       status.textContent = copied
-        ? `已复制 ${button.dataset.copyAccount}，可直接粘贴或前往 ${button.dataset.platform}。`
-        : `复制未成功，请手动复制：${button.dataset.copyAccount}`;
+        ? `已复制 ${button.dataset.copyAccount}，可前往${button.dataset.platform}搜索或粘贴使用。`
+        : `复制未成功，请手动选中复制：${button.dataset.copyAccount}`;
       button.disabled = false;
     });
   });

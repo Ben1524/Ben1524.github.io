@@ -21,7 +21,7 @@ const GROWTH_SKILLS = {
   scheduler: { name: "异构算力调度框架", icon: "radar.svg" },
   gpu: { name: "GPU 拓扑与虚拟节点", icon: "gpu.svg" },
   aiinfra: { name: "大模型训推基础设施", icon: "flame.svg" },
-  agent: { name: "Agent 容错状态机", icon: "bot.svg" },
+  agent: { name: "Agent 自进化与记忆", icon: "bot.svg" },
   sre: { name: "Fail-Closed 与可观测性", icon: "eye.svg" },
 };
 
@@ -80,14 +80,15 @@ const GROWTH_STAGES = [
     link: "#note-scheduler",
   },
   {
-    title: "AI Infra 与高可靠韧性工程",
-    land: "第六层 · 混沌边疆",
-    boss: "级联故障与长尾延迟",
-    period: "LAYER 06 · AI INFRA & RELIABILITY",
-    place: "前沿拓展 · 训推系统与防御性架构",
-    description: "探索分布式训练集合通信（RDMA/NCCL）、vLLM PagedAttention 推理调度、LLM Agent 确定性容错状态机，以及 Fail-Closed、过载保护与低基数可观测性。",
-    skills: ["aiinfra", "agent", "sre"],
-    link: "#note-aiinfra",
+    title: "Agent 自进化、AI Infra 与韧性",
+    land: "第六层 · 演化边疆",
+    boss: "静态退化与级联故障",
+    period: "LAYER 06 · SELF-EVOLVING AGENT & AI INFRA",
+    place: "前沿深耕 · 智能体自进化闭环与高可靠算力底座",
+    favoritePlace: "前沿探索",
+    description: "研究 Agent 在线工具容错、Reflexion 反思回环、情景/程序性记忆沉淀、Skill 库自动合成与防退化评测门禁，结合 vLLM/Ray 训推底座与 Fail-Closed 韧性工程。",
+    skills: ["agent", "aiinfra", "sre"],
+    link: "#note-agent-evolution",
     ongoing: true,
   },
 ];
@@ -291,7 +292,7 @@ function initGrowth(doc, win) {
           : "本段推演完成，可点击任意层级查看核心知识点。"
         : state.phase === "won"
           ? stage.ongoing
-            ? "迈向 AI Infra 与高可靠工程深水区，持续精进。"
+            ? "迈向 Agent 自进化与 AI Infra 深水区，持续精进。"
             : `本层点亮：${stage.skills.map((id) => GROWTH_SKILLS[id].name).join(" / ")}`
           : state.phase === "battle"
             ? `正在拆解系统难题：「${stage.boss}」…`
