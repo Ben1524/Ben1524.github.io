@@ -12,9 +12,9 @@
     <meta property="og:url" content="https://ben1524.github.io/">
     <link rel="canonical" href="https://ben1524.github.io/">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/style.css?v=20261020e">
+    <link rel="stylesheet" href="assets/style.css?v=20261021a">
     <link rel="stylesheet" href="assets/growth.css?v=20261020e">
-    <script src="assets/app.js?v=20261020e" defer></script>
+    <script src="assets/app.js?v=20261021a" defer></script>
     <script src="assets/bookmarks.js?v=20261020e" defer></script>
     <script src="assets/socials.js?v=20261020e" defer></script>
     <script src="assets/growth.js?v=20261020e" defer></script>
@@ -22,11 +22,14 @@
   </head>
   <body>
     <a class="skip-link" href="#main">跳到正文</a>
+    <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
     <header class="site-header">
       <a class="wordmark" href="#" aria-label="Ben1524，返回顶部">Ben1524<span>.</span></a>
+      <span class="header-badge" aria-hidden="true"><i></i>5 段实习 · 9 大课题 · 持续进化</span>
       <nav aria-label="主导航">
         <a href="#journey">成长</a>
         <a href="#projects">课题</a>
+        <a href="#blueprints">蓝图</a>
         <a href="#notes">笔记</a>
         <a href="#library">图谱</a>
         <a href="#bookmarks">典藏</a>
@@ -60,41 +63,119 @@
             <li>Agent 自进化体系</li>
           </ul>
         </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="art-label">INTERNSHIP JOURNEY &amp; KNOWLEDGE COMPASS</div>
-          <svg class="hero-svg" viewBox="0 0 460 440" fill="none">
-            <defs>
-              <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
-                <circle cx="1" cy="1" r="1" fill="currentColor" opacity=".13"/>
-              </pattern>
-            </defs>
-            <rect width="460" height="440" fill="url(#dots)"/>
-            <!-- Outer & Inner Knowledge Orbits -->
-            <circle cx="230" cy="220" r="154" class="orbit"/>
-            <circle cx="230" cy="220" r="116" class="orbit inner"/>
-            <!-- Knowledge Graph Connections -->
-            <path d="M110 130L178 182M350 130L282 182M105 305L176 254M355 305L284 254M230 66v58M230 316v58" class="node-line"/>
-            <!-- Satellite Knowledge Pillars -->
-            <rect x="82" y="104" width="44" height="32" rx="6" class="core-fill"/>
-            <rect x="334" y="104" width="44" height="32" rx="6" class="core-fill"/>
-            <rect x="78" y="292" width="44" height="32" rx="6" class="core-fill"/>
-            <rect x="338" y="292" width="44" height="32" rx="6" class="core-fill"/>
-            <circle cx="230" cy="66" r="12" class="core-fill"/>
-            <circle cx="230" cy="374" r="12" class="core-fill"/>
-            <!-- Central Mental-Model Core -->
-            <rect x="162" y="152" width="136" height="132" rx="34" class="core-body"/>
-            <path d="M180 156l-20-34 34 20M280 156l20-34-34 20" class="core-fill"/>
-            <rect x="184" y="178" width="92" height="48" rx="16" class="core-visor"/>
-            <circle cx="210" cy="202" r="9" fill="#222725"/>
-            <circle cx="250" cy="202" r="9" fill="#222725"/>
-            <circle cx="213" cy="199" r="3.5" class="core-eye"/>
-            <circle cx="253" cy="199" r="3.5" class="core-eye"/>
-            <!-- Heartbeat / First-Principles Pulse -->
-            <path d="M198 254h20l8-14 10 26 8-12h18" stroke="#d34e31" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M42 42h24M42 42v24m376-24h-24m24 0v24M42 398h24m-24 0v-24m376 24h-24m24 0v-24" class="crop-marks"/>
-          </svg>
+        <div class="hero-art">
+          <div class="art-topbar">
+            <span class="art-label">INTERNSHIP JOURNEY &amp; KNOWLEDGE COMPASS</span>
+            <div class="hero-view-tabs" role="group" aria-label="切换展示视图">
+              <button type="button" data-hero-view="topology" aria-pressed="true">拓扑</button>
+              <button type="button" data-hero-view="radar" aria-pressed="false">雷达</button>
+              <button type="button" data-hero-view="terminal" aria-pressed="false">终端</button>
+            </div>
+          </div>
+
+          <div data-hero-panel="topology">
+            <svg class="hero-svg" viewBox="0 0 460 440" fill="none" aria-hidden="true">
+              <defs>
+                <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <circle cx="1" cy="1" r="1" fill="currentColor" opacity=".13"/>
+                </pattern>
+              </defs>
+              <rect width="460" height="440" fill="url(#dots)"/>
+              <!-- Outer & Inner Knowledge Orbits -->
+              <circle cx="230" cy="220" r="154" class="orbit"/>
+              <circle cx="230" cy="220" r="116" class="orbit inner"/>
+              <!-- Knowledge Graph Connections -->
+              <path d="M110 130L178 182M350 130L282 182M105 305L176 254M355 305L284 254M230 66v58M230 316v58" class="node-line"/>
+              <!-- Satellite Knowledge Pillars -->
+              <rect x="82" y="104" width="44" height="32" rx="6" class="core-fill"/>
+              <rect x="334" y="104" width="44" height="32" rx="6" class="core-fill"/>
+              <rect x="78" y="292" width="44" height="32" rx="6" class="core-fill"/>
+              <rect x="338" y="292" width="44" height="32" rx="6" class="core-fill"/>
+              <circle cx="230" cy="66" r="12" class="core-fill"/>
+              <circle cx="230" cy="374" r="12" class="core-fill"/>
+              <!-- Central Mental-Model Core -->
+              <rect x="162" y="152" width="136" height="132" rx="34" class="core-body"/>
+              <path d="M180 156l-20-34 34 20M280 156l20-34-34 20" class="core-fill"/>
+              <rect x="184" y="178" width="92" height="48" rx="16" class="core-visor"/>
+              <circle cx="210" cy="202" r="9" fill="#222725"/>
+              <circle cx="250" cy="202" r="9" fill="#222725"/>
+              <circle cx="213" cy="199" r="3.5" class="core-eye"/>
+              <circle cx="253" cy="199" r="3.5" class="core-eye"/>
+              <!-- Heartbeat / First-Principles Pulse -->
+              <path d="M198 254h20l8-14 10 26 8-12h18" stroke="#d34e31" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M42 42h24M42 42v24m376-24h-24m24 0v24M42 398h24m-24 0v-24m376 24h-24m24 0v-24" class="crop-marks"/>
+            </svg>
+          </div>
+
+          <div data-hero-panel="radar" hidden>
+            <svg class="hero-svg" viewBox="0 0 460 440" fill="none" aria-hidden="true">
+              <!-- Concentric rings -->
+              <polygon class="radar-grid" points="230,70 368,150 368,290 230,370 92,290 92,150"/>
+              <polygon class="radar-grid" points="230,116 328,172 328,268 230,324 132,268 132,172" opacity=".7"/>
+              <polygon class="radar-grid" points="230,162 288,196 288,244 230,278 172,244 172,196" opacity=".5"/>
+              <!-- Axes -->
+              <path class="radar-axis" d="M230 220L230 70M230 220L368 150M230 220L368 290M230 220L230 370M230 220L92 290M230 220L92 150"/>
+              <!-- Capability polygon: 计算平台 / 具身基建 / AI-Infra / 商城交易 / 分布式 / Agent -->
+              <polygon class="radar-area" points="230,80 358,156 342,282 230,350 104,276 118,158"/>
+              <circle cx="230" cy="80" r="4" class="core-fill"/>
+              <circle cx="358" cy="156" r="4" class="core-fill"/>
+              <circle cx="342" cy="282" r="4" class="core-fill"/>
+              <circle cx="230" cy="350" r="4" class="core-fill"/>
+              <circle cx="104" cy="276" r="4" class="core-fill"/>
+              <circle cx="118" cy="158" r="4" class="core-fill"/>
+              <!-- Labels -->
+              <text class="svg-node-label" x="230" y="54" text-anchor="middle">计算平台</text>
+              <text class="svg-node-label" x="392" y="146" text-anchor="middle">具身基建</text>
+              <text class="svg-node-label" x="392" y="300" text-anchor="middle">AI-Infra</text>
+              <text class="svg-node-label" x="230" y="396" text-anchor="middle">商城交易</text>
+              <text class="svg-node-label" x="66" y="300" text-anchor="middle">分布式</text>
+              <text class="svg-node-label" x="66" y="146" text-anchor="middle">Agent 自进化</text>
+            </svg>
+          </div>
+
+          <div class="hero-terminal" data-hero-panel="terminal" hidden>
+            <div class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <p class="terminal-cmd">$ ben1524 --profile --format=json</p>
+            <ul class="terminal-kv">
+              <li>role: <strong>"Systems / AI-Infra Engineer"</strong></li>
+              <li>internships: <strong>5</strong> <span>// USTC-IAT · Infrawaves · Huawei · Seed×2</span></li>
+              <li>focus: <strong>["compute-platform", "embodied-infra", "agent-evo"]</strong></li>
+              <li>stack: <strong>["Go", "K8s", "CUDA/TensorRT", "Redis", "etcd"]</strong></li>
+              <li>principles: <strong>["Fail-Closed", "Idempotent", "EvalGate"]</strong></li>
+              <li>status: <strong>"keep building"</strong></li>
+            </ul>
+            <p class="terminal-cmd">$ const selfEvolving = true;</p>
+          </div>
+
           <div class="art-caption"><span>01 / USTC-IAT → INFRAWAVES → HUAWEI → SEED</span><span>const selfEvolving = true;</span></div>
         </div>
+      </section>
+
+      <section class="bento-strip" aria-label="履历与知识概览">
+        <article class="bento-card">
+          <div class="bento-head"><span>EXPERIENCE</span><span>实习</span></div>
+          <p class="bento-value">5<small>段历练</small></p>
+          <p class="bento-desc">从端侧图像模型部署，一路走到大规模 Serverless GPU 计算平台与具身智能基建。</p>
+          <div class="bento-chips"><span>USTC-IAT</span><span>Infrawaves</span><span>Huawei</span><span>Seed ×2</span></div>
+        </article>
+        <article class="bento-card">
+          <div class="bento-head"><span>CORE FOCUS</span><span>课题</span></div>
+          <p class="bento-value">9<small>大方向</small></p>
+          <p class="bento-desc">计算平台、具身基建、AI-Infra、商城交易、运行时与分布式、Agent 自进化。</p>
+          <div class="bento-chips"><span>Compute</span><span>Embodied</span><span>Agent</span><span>Commerce</span></div>
+        </article>
+        <article class="bento-card">
+          <div class="bento-head"><span>READING LIST</span><span>典藏</span></div>
+          <p class="bento-value">45<small>篇精选</small></p>
+          <p class="bento-desc">按五大领域整理的论文、架构实践与官方规范，支持关键词实时检索。</p>
+          <div class="bento-chips"><span>Papers</span><span>Specs</span><span>Blogs</span></div>
+        </article>
+        <article class="bento-card">
+          <div class="bento-head"><span>SKILL TREE</span><span>技能</span></div>
+          <p class="bento-value">22<small>项能力</small></p>
+          <p class="bento-desc">成长冒险中逐关点亮的核心工程能力，覆盖推理加速到分布式共识。</p>
+          <div class="bento-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </article>
       </section>
 
       <div class="section-divider">
@@ -186,45 +267,51 @@
           <summary>查看完整实习经历 · 从模型部署、算力监控到具身智能与计算平台</summary>
           <ol class="career-timeline">
             <li>
-              <p class="career-period">INTERNSHIP 01 · USTC IAT</p>
+              <p class="career-period">INTERNSHIP 01 · USTC IAT<span class="career-role-badge">模型部署</span></p>
               <div>
                 <h3>中国科大先研院 · 图像模型部署</h3>
                 <p>视觉与图像深度学习模型从训练产物到生产服务化落地 · 模型转换与算子对齐（ONNX / TensorRT）、INT8/FP16 量化加速、前后处理流水线并发优化与推理服务封装</p>
+                <div class="timeline-tags"><span>ONNX</span><span>TensorRT</span><span>INT8/FP16</span><span>推理服务</span></div>
               </div>
             </li>
             <li>
-              <p class="career-period">INTERNSHIP 02 · INFRAWAVES</p>
+              <p class="career-period">INTERNSHIP 02 · INFRAWAVES<span class="career-role-badge">算力监控</span></p>
               <div>
                 <h3>基流科技 · GPU 集群监控</h3>
                 <p>面向大模型智算集群与高速互联网络的可观测性体系建设 · 基于 NVIDIA DCGM 与 Exporter 采集 GPU 显存/SM 利用率/温度功耗/Xid 硬件错误，联动 RDMA (RoCEv2/IB) 通信指标与 Prometheus/Grafana 告警诊断</p>
+                <div class="timeline-tags"><span>DCGM</span><span>Xid</span><span>RDMA</span><span>Prometheus</span></div>
               </div>
             </li>
             <li>
-              <p class="career-period">INTERNSHIP 03 · HUAWEI NRI</p>
+              <p class="career-period">INTERNSHIP 03 · HUAWEI NRI<span class="career-role-badge">AI-Infra</span></p>
               <div>
                 <h3>华为南研所 · AI-Infra 部署</h3>
                 <p>云原生 AI 基础设施底座交付与容器化运行时优化 · Kubernetes 集群编排、异构加速卡 Device Plugin 与训练作业 Operator 部署、容器镜像按需拉取加速与分布式存储挂载管理</p>
+                <div class="timeline-tags"><span>Kubernetes</span><span>Device Plugin</span><span>Operator</span><span>镜像加速</span></div>
               </div>
             </li>
             <li>
-              <p class="career-period">INTERNSHIP 04 · SEED-ROBOTICS</p>
+              <p class="career-period">INTERNSHIP 04 · SEED-ROBOTICS<span class="career-role-badge">具身基建</span></p>
               <div>
                 <h3>Seed-Robotics · 具身智能基建和平台</h3>
                 <p>面向具身智能（Embodied AI / VLA）的数据与训练平台工程 · 多模态机器人传感器轨迹数据（图像/点云/关节动作）采集、清洗、切片入湖，构建自动化数据回流、分布式训练编排与仿真评测闭环</p>
+                <div class="timeline-tags"><span>Embodied AI</span><span>VLA</span><span>数据飞轮</span><span>Sim Eval</span></div>
               </div>
             </li>
             <li>
-              <p class="career-period">INTERNSHIP 05 · SEED-AI4S</p>
+              <p class="career-period">INTERNSHIP 05 · SEED-AI4S<span class="career-role-badge">计算平台</span></p>
               <div>
                 <h3>Seed-AI4S · 计算平台构建</h3>
                 <p>面向科学计算与大规模 AI 负载的 Serverless GPU 计算平台研发 · Kubernetes Scheduler Framework 异构算力与存储配额调度插件、Virtual Kubelet 多集群节点池接入、双平面控制面解耦与 Fail-Closed 高可靠架构</p>
+                <div class="timeline-tags"><span>Scheduler Framework</span><span>Virtual Kubelet</span><span>Fail-Closed</span></div>
               </div>
             </li>
             <li>
-              <p class="career-period">CONTINUOUS · RADAR</p>
+              <p class="career-period">CONTINUOUS · RADAR<span class="career-role-badge">持续拓展</span></p>
               <div>
                 <h3>全景系统工程拓展 · 高并发商城交易与 Agent 自进化</h3>
                 <p>横向补齐复杂业务架构与前沿智能体机制 · 商品 SPU/SKU、订单状态机、三层库存防超卖、TCC/对账；以及 Agent 在线工具容错、Reflexion 记忆演进、Skill 自动合成与防退化评测门禁</p>
+                <div class="timeline-tags"><span>订单 FSM</span><span>防超卖</span><span>TCC</span><span>Reflexion</span><span>Skill 合成</span></div>
               </div>
             </li>
           </ol>
@@ -396,13 +483,162 @@
         </div>
       </section>
 
+      <section class="blueprints section" id="blueprints" aria-labelledby="blueprints-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">03 / INTERACTIVE ARCHITECTURE BLUEPRINTS</p>
+            <h2 id="blueprints-title">把核心系统拆成可点读的架构蓝图<span class="small-dot">.</span></h2>
+          </div>
+          <p class="section-description">选一个方向，查看它的关键数据流与必须守住的工程不变量（Invariants）。</p>
+        </div>
+
+        <div class="blueprint-workbench">
+          <div class="blueprint-tabs" role="tablist" aria-label="选择架构蓝图">
+            <button type="button" role="tab" data-bp-tab="platform" aria-selected="true">
+              <span class="blueprint-tab-num">BP-01</span>
+              <span class="blueprint-tab-title">计算平台控制面</span>
+            </button>
+            <button type="button" role="tab" data-bp-tab="inventory" aria-selected="false">
+              <span class="blueprint-tab-num">BP-02</span>
+              <span class="blueprint-tab-title">高并发库存扣减</span>
+            </button>
+            <button type="button" role="tab" data-bp-tab="agent" aria-selected="false">
+              <span class="blueprint-tab-num">BP-03</span>
+              <span class="blueprint-tab-title">Agent 自进化闭环</span>
+            </button>
+            <button type="button" role="tab" data-bp-tab="embodied" aria-selected="false">
+              <span class="blueprint-tab-num">BP-04</span>
+              <span class="blueprint-tab-title">具身数据飞轮</span>
+            </button>
+          </div>
+
+          <div class="blueprint-panel" role="tabpanel" data-bp-panel="platform">
+            <div class="blueprint-canvas">
+              <svg class="blueprint-svg" viewBox="0 0 640 220" fill="none" aria-label="计算平台双平面控制面数据流：内场 Controller 写 Redis 快照，算力侧 Scheduler 本地只读并 Fail-Closed">
+                <rect class="bp-box" x="24" y="40" width="150" height="56" rx="8"/>
+                <text class="bp-title" x="99" y="64" text-anchor="middle">内场 Controller</text>
+                <text class="bp-sub" x="99" y="82" text-anchor="middle">配额 / NAS 权限同步</text>
+                <rect class="bp-box-accent" x="245" y="40" width="150" height="56" rx="8"/>
+                <text class="bp-title" x="320" y="64" text-anchor="middle">Redis 快照</text>
+                <text class="bp-sub" x="320" y="82" text-anchor="middle">版本化 + TTL 容忍窗口</text>
+                <rect class="bp-box" x="466" y="40" width="150" height="56" rx="8"/>
+                <text class="bp-title" x="541" y="64" text-anchor="middle">Scheduler 插件</text>
+                <text class="bp-sub" x="541" y="82" text-anchor="middle">纯本地只读快照</text>
+                <rect class="bp-box-dark" x="245" y="140" width="150" height="52" rx="8"/>
+                <text class="bp-title-light" x="320" y="163" text-anchor="middle">Pod Pending</text>
+                <text class="bp-sub-light" x="320" y="180" text-anchor="middle">快照缺失 → Fail-Closed</text>
+                <path class="bp-arrow" d="M174 68H243"/>
+                <path class="bp-arrow" d="M395 68H464"/>
+                <path class="bp-arrow" d="M320 96V138"/>
+              </svg>
+            </div>
+            <div class="bp-invariants">
+              <div class="bp-invariant-card"><strong>数据流反转</strong><p>控制面只写、算力面只读，杜绝 Scheduler 回写内场造成耦合与竞态。</p></div>
+              <div class="bp-invariant-card"><strong>Fail-Closed 铁律</strong><p>快照缺失、过期超容忍窗口或权限不可确认时，强制 Pending，绝不猜测放行。</p></div>
+              <div class="bp-invariant-card"><strong>两阶段绑定</strong><p>Reserve 乐观预占，Bind 失败必须 Unreserve 精确回滚本地缓存。</p></div>
+            </div>
+          </div>
+
+          <div class="blueprint-panel" role="tabpanel" data-bp-panel="inventory" hidden>
+            <div class="blueprint-canvas">
+              <svg class="blueprint-svg" viewBox="0 0 640 220" fill="none" aria-label="高并发库存扣减链路：网关令牌桶限流、Redis Lua 原子预扣、MQ 异步落库、DB 兜底">
+                <rect class="bp-box" x="18" y="82" width="124" height="56" rx="8"/>
+                <text class="bp-title" x="80" y="106" text-anchor="middle">网关限流</text>
+                <text class="bp-sub" x="80" y="124" text-anchor="middle">令牌桶 / 排队</text>
+                <rect class="bp-box-accent" x="178" y="82" width="134" height="56" rx="8"/>
+                <text class="bp-title" x="245" y="106" text-anchor="middle">Redis Lua</text>
+                <text class="bp-sub" x="245" y="124" text-anchor="middle">原子校验 + 预扣</text>
+                <rect class="bp-box" x="348" y="82" width="124" height="56" rx="8"/>
+                <text class="bp-title" x="410" y="106" text-anchor="middle">MQ 异步</text>
+                <text class="bp-sub" x="410" y="124" text-anchor="middle">削峰创建订单</text>
+                <rect class="bp-box-dark" x="508" y="82" width="116" height="56" rx="8"/>
+                <text class="bp-title-light" x="566" y="106" text-anchor="middle">DB 兜底</text>
+                <text class="bp-sub-light" x="566" y="124" text-anchor="middle">stock &gt;= count</text>
+                <path class="bp-arrow" d="M142 110H176"/>
+                <path class="bp-arrow" d="M312 110H346"/>
+                <path class="bp-arrow" d="M472 110H506"/>
+              </svg>
+            </div>
+            <div class="bp-invariants">
+              <div class="bp-invariant-card"><strong>三层库存模型</strong><p>可售 / 预占 / 实物分离；下单锁预占、支付转实扣、超时释放，扣减流水幂等防重放。</p></div>
+              <div class="bp-invariant-card"><strong>热点分桶</strong><p>十万级 QPS 单品拆成 K 个子桶分散分片，不足时桶间调拨或回退。</p></div>
+              <div class="bp-invariant-card"><strong>DB 最终底线</strong><p>任何上层加速都不绕过 <code>WHERE available_stock &gt;= count</code>，严防超卖。</p></div>
+            </div>
+          </div>
+
+          <div class="blueprint-panel" role="tabpanel" data-bp-panel="agent" hidden>
+            <div class="blueprint-canvas">
+              <svg class="blueprint-svg" viewBox="0 0 640 220" fill="none" aria-label="Agent 自进化闭环：执行自愈、轨迹反思、技能合成、评测门禁回流">
+                <rect class="bp-box" x="30" y="82" width="128" height="56" rx="8"/>
+                <text class="bp-title" x="94" y="106" text-anchor="middle">在线自愈</text>
+                <text class="bp-sub" x="94" y="124" text-anchor="middle">6 类结构化错误</text>
+                <rect class="bp-box" x="196" y="82" width="128" height="56" rx="8"/>
+                <text class="bp-title" x="260" y="106" text-anchor="middle">轨迹反思</text>
+                <text class="bp-sub" x="260" y="124" text-anchor="middle">记忆演进 Reflexion</text>
+                <rect class="bp-box-accent" x="362" y="82" width="128" height="56" rx="8"/>
+                <text class="bp-title" x="426" y="106" text-anchor="middle">技能合成</text>
+                <text class="bp-sub" x="426" y="124" text-anchor="middle">Skill Library</text>
+                <rect class="bp-box-dark" x="512" y="82" width="110" height="56" rx="8"/>
+                <text class="bp-title-light" x="567" y="106" text-anchor="middle">评测门禁</text>
+                <text class="bp-sub-light" x="567" y="124" text-anchor="middle">防退化回流</text>
+                <path class="bp-arrow" d="M158 110H194"/>
+                <path class="bp-arrow" d="M324 110H360"/>
+                <path class="bp-arrow" d="M490 110H510"/>
+                <path class="bp-arrow" d="M567 138C567 180 94 180 94 140"/>
+              </svg>
+            </div>
+            <div class="bp-invariants">
+              <div class="bp-invariant-card"><strong>确定性恢复</strong><p>参数自省、退避重试、备选工具切换、局部 Re-plan 取代盲目重试。</p></div>
+              <div class="bp-invariant-card"><strong>分层记忆</strong><p>情景记忆沉淀案例，语义 / 程序性记忆蒸馏 SOP，并定期去重消解剪枝。</p></div>
+              <div class="bp-invariant-card"><strong>防自我强化</strong><p>新技能与记忆入库前必过沙箱单测 + 历史轨迹回放 + 黄金评测集。</p></div>
+            </div>
+          </div>
+
+          <div class="blueprint-panel" role="tabpanel" data-bp-panel="embodied" hidden>
+            <div class="blueprint-canvas">
+              <svg class="blueprint-svg" viewBox="0 0 640 220" fill="none" aria-label="具身智能数据飞轮：真机采集、清洗入湖、分布式训练、仿真评测回流">
+                <rect class="bp-box" x="24" y="82" width="128" height="56" rx="8"/>
+                <text class="bp-title" x="88" y="106" text-anchor="middle">真机采集</text>
+                <text class="bp-sub" x="88" y="124" text-anchor="middle">ROS Bag / MCAP</text>
+                <rect class="bp-box" x="188" y="82" width="128" height="56" rx="8"/>
+                <text class="bp-title" x="252" y="106" text-anchor="middle">清洗入湖</text>
+                <text class="bp-sub" x="252" y="124" text-anchor="middle">对齐 + Lance</text>
+                <rect class="bp-box-accent" x="352" y="82" width="128" height="56" rx="8"/>
+                <text class="bp-title" x="416" y="106" text-anchor="middle">分布式训练</text>
+                <text class="bp-sub" x="416" y="124" text-anchor="middle">流式加载 VLA</text>
+                <rect class="bp-box-dark" x="512" y="82" width="110" height="56" rx="8"/>
+                <text class="bp-title-light" x="567" y="106" text-anchor="middle">仿真评测</text>
+                <text class="bp-sub-light" x="567" y="124" text-anchor="middle">Isaac / MuJoCo</text>
+                <path class="bp-arrow" d="M152 110H186"/>
+                <path class="bp-arrow" d="M316 110H350"/>
+                <path class="bp-arrow" d="M480 110H510"/>
+                <path class="bp-arrow" d="M567 138C567 182 88 182 88 140"/>
+              </svg>
+            </div>
+            <div class="bp-invariants">
+              <div class="bp-invariant-card"><strong>时间戳对齐</strong><p>30Hz~1000Hz 多源传感器入湖前完成软硬件时间戳对齐与异常帧裁剪。</p></div>
+              <div class="bp-invariant-card"><strong>吞吐不掉链</strong><p>分片预取 + 分布式缓存 + NVDEC 硬解，避免视频解码拖垮训练 MFU。</p></div>
+              <div class="bp-invariant-card"><strong>失败回流</strong><p>仿真失败长尾轨迹自动回流训练集，形成持续增强的数据飞轮。</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="notes section" id="notes" aria-labelledby="notes-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">03 / WRITING &amp; NOTES</p>
+            <p class="eyebrow">04 / WRITING &amp; NOTES</p>
             <h2 id="notes-title">八张核心知识卡片，<br>常读常新的案头笔记<span class="small-dot">.</span></h2>
           </div>
           <p class="section-description">把<strong>五段实习沉淀（计算平台、具身基建、AI-Infra、GPU 监控、模型部署）</strong>与<strong>高并发商城交易、Agent 自进化</strong>浓缩成 8 份结构化清单。点击任意卡片即可展开或折叠详细要点。</p>
+        </div>
+
+        <div class="notes-toolbar">
+          <span class="notes-toolbar-info">8 份笔记 · 点击标题展开/折叠，或一键批量操作</span>
+          <div class="notes-toolbar-actions">
+            <button type="button" id="notes-expand-all">全部展开</button>
+            <button type="button" id="notes-collapse-all">全部折叠</button>
+          </div>
         </div>
 
         <div class="notes-grid" aria-label="核心知识专题笔记">
@@ -422,6 +658,14 @@
                 <li><strong>跨平面数据流反转与 Fail-Closed 铁律</strong>：内场 Controller 将异构 Spot 配额与共享存储（NAS）权限同步写入 Redis 快照；算力侧 Scheduler 插件纯本地读取快照。一旦 Redis 数据缺失、过期超过容忍窗口或权限不可确认，<strong>强制保持 Pod Pending（Fail-Closed）</strong>，绝不基于猜测容量放行。</li>
                 <li><strong>Virtual Kubelet 多节点池与进程管理（PM）</strong>：通过 Virtual Kubelet 将底层集群（如 Merlin / MLP）抽象为 K8s 虚拟节点池；工作负载容器内 PM 采用流式消费与超时自动认领（<code>XAUTOCLAIM</code>）保证控制指令幂等投递。</li>
               </ul>
+              <pre class="code-snippet"><span class="cm">// Fail-Closed：快照不可信时一律 Pending，绝不猜测放行</span>
+<span class="kw">func</span> (p *Plugin) <span class="fn">Filter</span>(ctx, pod, node) *Status {
+    snap, ok := p.cache.<span class="fn">Get</span>(node.Name)
+    <span class="kw">if</span> !ok || snap.<span class="fn">Expired</span>(p.tolerance) {
+        <span class="kw">return</span> framework.<span class="fn">NewStatus</span>(Unschedulable, <span class="fn">"snapshot missing/stale"</span>)
+    }
+    <span class="kw">return</span> snap.<span class="fn">Fits</span>(pod)
+}</pre>
             </div>
           </details>
 
@@ -520,6 +764,12 @@
                 <li><strong>柔性事务选型（Outbox vs TCC）</strong>：支付成功通知履约/积分优先用<strong>本地消息表（Transactional Outbox）</strong>保证最终一致；下单同时扣减库存、核销优惠券等需强隔离预留资源的环节采用 <strong>TCC（Try-Confirm-Cancel）</strong>，通过事务状态控制表防范<strong>空回滚</strong>与<strong>悬挂</strong>。</li>
                 <li><strong>支付幂等与 T+1 清结算对账</strong>：发起支付与退款必须携带全局唯一幂等键（<code>out_trade_no</code> / <code>out_refund_no</code>），异步回调配合主动查单定时任务兜底；每日凌晨拉取渠道对账单与本地支付单/订单做「笔数、金额、状态」三角核对，自动识别长短款并进入差错平账流程。</li>
               </ul>
+              <pre class="code-snippet"><span class="cm">-- Redis Lua：原子预扣，杜绝超卖</span>
+<span class="kw">local</span> stock = tonumber(redis.<span class="fn">call</span>(<span class="fn">'GET'</span>, KEYS[1]))
+<span class="kw">if</span> stock == nil <span class="kw">or</span> stock &lt; tonumber(ARGV[1]) <span class="kw">then</span>
+  <span class="kw">return</span> -1
+<span class="kw">end</span>
+<span class="kw">return</span> redis.<span class="fn">call</span>(<span class="fn">'DECRBY'</span>, KEYS[1], ARGV[1])</pre>
             </div>
           </details>
 
@@ -598,7 +848,7 @@
       <section class="library section" id="library" aria-labelledby="library-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">04 / KNOWLEDGE GRAPH</p>
+            <p class="eyebrow">05 / KNOWLEDGE GRAPH</p>
             <h2 id="library-title">核心领域的必学开源源码与规范<span class="small-dot">.</span></h2>
           </div>
         </div>
@@ -668,7 +918,7 @@
       <section class="bookmarks section" id="bookmarks" aria-labelledby="bookmarks-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">05 / CURATED READING LIST</p>
+            <p class="eyebrow">06 / CURATED READING LIST</p>
             <h2 id="bookmarks-title">值得反复精读的论文、架构实践与文档<span class="small-dot">.</span></h2>
           </div>
           <p class="section-description"><span id="bookmark-total">45</span> 条精选知识书签。<br>按五大领域整理，支持实时搜索关键词（如 具身智能、自进化、DCGM、秒杀、TCC、Raft、Scheduler）。</p>
@@ -774,7 +1024,7 @@
       <section class="socials section" id="social" aria-labelledby="social-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">06 / CONNECT &amp; ENGINEERING HABITS</p>
+            <p class="eyebrow">07 / CONNECT &amp; ENGINEERING HABITS</p>
             <h2 id="social-title">在这里联系我，也把原则留在手边<span class="small-dot">.</span></h2>
           </div>
         </div>
@@ -816,7 +1066,7 @@
 
       <section class="about section" id="about" aria-labelledby="about-title">
         <div>
-          <p class="eyebrow">07 / PHILOSOPHY &amp; ABOUT</p>
+          <p class="eyebrow">08 / PHILOSOPHY &amp; ABOUT</p>
           <h2 id="about-title">从模型部署、算力基建<br>到计算平台与自进化<span class="small-dot">.</span></h2>
         </div>
         <div class="about-copy">
