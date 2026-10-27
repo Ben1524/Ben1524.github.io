@@ -120,6 +120,17 @@ function initSite(doc, win) {
     });
   }
 
+  // Auto-open target <details> when jumping to #note-* anchor links
+  doc.querySelectorAll('a[href^="#note-"]').forEach((anchor) => {
+    anchor.addEventListener("click", () => {
+      const targetId = anchor.getAttribute("href").slice(1);
+      const targetEl = doc.getElementById(targetId);
+      if (targetEl && targetEl.tagName === "DETAILS") {
+        targetEl.open = true;
+      }
+    });
+  });
+
   // Project / Topic Filters
   const filters = doc.querySelector(".filters");
   if (!filters) return;

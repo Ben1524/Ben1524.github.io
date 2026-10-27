@@ -1,4 +1,4 @@
-/* A richly layered engineering notebook for Ben1524. */
+/* A richly layered engineering notebook for BeyondAlice. */
 :root {
   color-scheme: light;
   --paper: #f6f5f0;
@@ -1163,6 +1163,29 @@ h3 {
   border-top: 1px solid var(--line);
   padding-bottom: 100px;
 }
+.about-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 26px;
+}
+.about-stack-card {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--surface);
+}
+.about-stack-card strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: var(--ink);
+}
+.about-stack-card p {
+  margin: 0;
+  font: 11.5px/1.65 ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--muted);
+}
 .about-copy { padding-top: 36px; }
 .about-copy p {
   margin: 0 0 18px;
@@ -1237,6 +1260,7 @@ h3 {
   .hero-actions .button { gap: 10px; padding-inline: 10px; font-size: 14px; }
   .hero-actions .text-link { justify-self: start; }
   .bento-strip { grid-template-columns: 1fr; }
+  .about-stack-grid { grid-template-columns: 1fr; }
   .blueprint-tabs { grid-template-columns: 1fr; }
   .blueprint-panel { padding: 18px; }
   .section-divider { font-size: 12px; }
